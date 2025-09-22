@@ -3,22 +3,29 @@ package com.orange;
 import org.testng.annotations.*;
 
 public class TestNGTest {
+    @BeforeSuite
+    public void beforeSuite() {
+        System.out.println("1. Before Suite");
+
+    }
+    @BeforeTest
+    public void beforeTest() {
+        System.out.println("2. Before Test");
+    }
+    @BeforeClass
+    public void beforeClass() {
+        System.out.println("3. Before Class");
+    }
+    @BeforeMethod
+    public void beforeMethod() {
+        System.out.println("4. Before Method");
+    }
 
     @Test(dataProvider = "dp")
     public void f(Integer n, String s)
         {
+            System.out.println("Number" + n +"letter" + s);
         }
-    @BeforeSuite
-    public void setUp() {
-
-    }
-    @AfterSuite
-    public void tearDown() {
-    }
-    @BeforeMethod
-    public void beforeMethod() {}
-    @AfterMethod
-    public void afterMethod() {}
     @DataProvider
     public Object[][] dp() {
         return new Object[][] {
@@ -26,15 +33,25 @@ public class TestNGTest {
                 new Object[] {2, "b"}
         };
     }
-    @BeforeClass
-    public void beforeClass() {
+    @AfterMethod
+    public void afterMethod() {
+        System.out.println("5. After Method");
     }
+
+
     @AfterClass
     public void afterClass() {
+        System.out.println("6. After Class");
     }
-    @BeforeTest
-    public void beforeTest() {}
+
+
     @AfterTest
-    public void afterTest() {}
-    
+    public void afterTest() {
+        System.out.println("7. After Test");
+    }
+
+    @AfterSuite
+    public void afterSuite() {
+        System.out.println("8. After Suite");
+    }
 }
