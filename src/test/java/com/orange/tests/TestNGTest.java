@@ -1,4 +1,4 @@
-package com.orange;
+package com.orange.tests;
 
 import org.testng.annotations.*;
 
@@ -6,11 +6,12 @@ public class TestNGTest {
     @BeforeSuite
     public void beforeSuite() {
         System.out.println("1. Before Suite");
-
+        //extraer data from sql
     }
     @BeforeTest
     public void beforeTest() {
         System.out.println("2. Before Test");
+        //initial report
     }
     @BeforeClass
     public void beforeClass() {
@@ -53,5 +54,6 @@ public class TestNGTest {
     @AfterSuite
     public void afterSuite() {
         System.out.println("8. After Suite");
+        //flush extent report
     }
 }
